@@ -9853,6 +9853,7 @@ definitions:
     - serply
     - deepseek
     - searchapi
+    - specstream
     type: string
     x-enum-varnames:
     - WebSearchProviderTypeBrave
@@ -9871,6 +9872,7 @@ definitions:
     - WebSearchProviderTypeSerply
     - WebSearchProviderTypeDeepSeek
     - WebSearchProviderTypeSearchAPI
+    - WebSearchProviderTypeSpecStream
   github_com_Tencent_WeKnora_internal_types.WebSearchProviderTypeInfo:
     properties:
       config_fields:

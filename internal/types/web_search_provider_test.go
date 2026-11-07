@@ -155,3 +155,21 @@ func TestGetWebSearchProviderTypesIncludesSearchAPI(t *testing.T) {
 		t.Fatalf("unexpected SearchApi metadata: %+v", searchAPI)
 	}
 }
+
+func TestGetWebSearchProviderTypesIncludesSpecStream(t *testing.T) {
+	var specStream *WebSearchProviderTypeInfo
+	providerTypes := GetWebSearchProviderTypes()
+	for i := range providerTypes {
+		if providerTypes[i].ID == string(WebSearchProviderTypeSpecStream) {
+			specStream = &providerTypes[i]
+			break
+		}
+	}
+	if specStream == nil {
+		t.Fatal("SpecStream provider type not found")
+	}
+	if !specStream.RequiresAPIKey || !specStream.SupportsProxy ||
+		specStream.RequiresEngineID || specStream.RequiresBaseURL {
+		t.Fatalf("unexpected SpecStream metadata: %+v", specStream)
+	}
+}

@@ -2057,6 +2057,7 @@ func registerWebSearchProviders(registry *infra_web_search.Registry) {
 		{Type: "exa", Search: infra_web_search.NewExaProvider},
 		{Type: "metaso", Search: infra_web_search.NewMetasoProvider},
 		{Type: "bocha", Search: infra_web_search.NewBochaProvider},
+		{Type: "specstream", Search: infra_web_search.NewSpecStreamProvider},
 	} {
 		registry.Add(spec)
 	}

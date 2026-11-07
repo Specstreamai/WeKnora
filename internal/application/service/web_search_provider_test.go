@@ -111,3 +111,17 @@ func TestValidateProviderParametersSearchAPI(t *testing.T) {
 		t.Fatal("blank SearchApi API key was accepted")
 	}
 }
+
+func TestValidateProviderParametersSpecStream(t *testing.T) {
+	valid := types.WebSearchProviderParameters{APIKey: "specstream-test"}
+	if err := validateProviderParameters(types.WebSearchProviderTypeSpecStream, valid); err != nil {
+		t.Fatalf("valid SpecStream parameters rejected: %v", err)
+	}
+	if !isValidProviderType(types.WebSearchProviderTypeSpecStream) {
+		t.Fatal("SpecStream provider type is not accepted")
+	}
+	blank := types.WebSearchProviderParameters{APIKey: "   "}
+	if err := validateProviderParameters(types.WebSearchProviderTypeSpecStream, blank); err == nil {
+		t.Fatal("blank SpecStream API key was accepted")
+	}
+}

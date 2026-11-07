@@ -32,6 +32,7 @@ const (
 	WebSearchProviderTypeSerply     WebSearchProviderType = "serply"
 	WebSearchProviderTypeDeepSeek   WebSearchProviderType = "deepseek"
 	WebSearchProviderTypeSearchAPI  WebSearchProviderType = "searchapi"
+	WebSearchProviderTypeSpecStream WebSearchProviderType = "specstream"
 )
 
 // WebSearchProviderEntity represents a configured web search provider instance for a workspace.
@@ -390,6 +391,14 @@ func GetWebSearchProviderTypes() []WebSearchProviderTypeInfo {
 			SupportsProxy:  true,
 			Description:    "DeepSeek Search and Fetch (requires API key)",
 			DocsURL:        "https://api-docs.deepseek.com/api/search",
+		},
+		{
+			ID:             "specstream",
+			Name:           "SpecStream",
+			RequiresAPIKey: true,
+			SupportsProxy:  true,
+			Description:    "SpecStream web search API (requires API key)",
+			DocsURL:        "https://specstream.ai/docs/search-api",
 		},
 	}
 }

@@ -10,7 +10,7 @@
 
 ```go
 registry.Add(infra_web_search.Spec{Type: "duckduckgo", Search: infra_web_search.NewDuckDuckGoProvider})
-// ... google、bing、tavily、ollama、baidu、searxng、keenable、zhipu、exa、metaso、bocha 同上
+// ... google、bing、tavily、ollama、baidu、searxng、keenable、zhipu、exa、metaso、bocha、specstream 同上
 registry.Add(infra_web_search.Spec{Type: "brave", FilteredSearch: infra_web_search.NewBraveProvider})
 registry.Add(infra_web_search.Spec{Type: "serply", FilteredSearch: infra_web_search.NewSerplyProvider})
 registry.Add(infra_web_search.Spec{
@@ -38,9 +38,10 @@ registry.Add(infra_web_search.Spec{Type: "searchapi", FilteredSearch: infra_web_
 | Brave Search | `brave.go` | 是 | `https://api.search.brave.com/res/v1/web/search` | 支持按次传 country/freshness |
 | Serply | `serply.go` | 是 | `https://api.serply.io/v1/search` | Google 结果；支持按次传 country/freshness（仅 pd/pw/pm/py） |
 | DeepSeek | `deepseek.go` | 是 | `https://api.deepseek.com/v1/tools/search`、`/v1/tools/fetch` | 查询最多 128 字符；同时提供读页 API，`web_fetch` 与 `content=true` 改走 DeepSeek Fetch |
+| SpecStream | `specstream.go` | 是 | `https://api.specstream.ai/v1/web-search`（硬编码） | 接口无结果数量参数，条数在本地截取；拒绝重定向，Bearer Key 不会转发 |
 | SearchApi | `searchapi.go` | 是 | `https://www.searchapi.io/api/v1/search` | Google 结果（`engine=google`）；支持按次传 country/freshness（仅 pd/pw/pm/py） |
 
-当前共注册 16 个引擎。
+当前共注册 17 个引擎。
 
 | 提供商附加配置 | 值 |
 | --- | --- |
